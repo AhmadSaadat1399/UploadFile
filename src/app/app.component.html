@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Upload Image</h4>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+            <label for="Caption">Caption</label>
+          </div>
+        </div>
+        <img [src]="imageSrc" style="width: 250px;height: 200px">
+        <input type="file" #Image accept="image/*" (change)="onFileChange($event)">
+         <button type="submit" class="btn-large btn-submit" [disabled]="Image.value==''">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+<h1>Angular 10 Image Upload with Preview - ItSolutionStuff.com</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            formControlName="name"
+            id="name"
+            type="text"
+            class="form-control">
+        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+            <div *ngIf="f.name.errors.required">Name is required.</div>
+            <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="file">File</label>
+        <input
+            formControlName="file"
+            id="file"
+            type="file"
+            class="form-control"
+            (change)="onFileChange($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors.required">File is required.</div>
+        </div>
+    </div>
+
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form> -->
